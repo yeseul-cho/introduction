@@ -1,0 +1,142 @@
+/*
+font-family: 'Noto Sans KR', sans-serif;
+font-family: 'Poppins', sans-serif;
+*/
+
+* {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    list-style: none;
+    box-sizing: border-box;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+html {
+    min-height: 100%;
+    width: 100%;
+}
+
+nav {
+    padding: 1.25rem;
+    background-color: black;
+    color: white;
+}
+
+.navbar{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
+a {
+    color: inherit;
+    text-decoration: inherit; 
+}
+
+.navitem {
+    margin-left: 1rem;
+}
+
+.home {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: bold;
+    font-size: 1.25rem;
+    margin-right: 1rem;
+}
+
+.navitem > a {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+}
+
+a:hover {
+    font-style: italic;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 2rem;
+    align-items: center;
+}
+
+/* title area */
+.title-area {
+    margin: 1.5rem 0 1.5rem 0;
+}
+
+.title, .subtitle {
+    font-size: 5rem;
+    font-weight: 700;
+    letter-spacing: -0.2rem;
+    display: inline;
+}
+
+.subtitle {
+    font-weight: 300;
+    margin-left: 0.75rem;
+}
+
+
+/* contents area */
+.contents-area {
+    display: flex;
+    flex-direction: row;
+    border: solid 3px;
+    width: 80%;
+    max-width: 800px;
+}
+
+.about-texts {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.about-text {
+    border-bottom: solid 3px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.about-text:nth-child(3){
+    border-bottom: none;
+}
+
+.about-title {
+    display: flex;
+    flex-direction: row;
+}
+
+.number {
+    width: 3.25rem;
+    border-right: 3px solid;
+    background-color: yellow;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.open{
+    border-bottom: 3px solid;
+}
+
+.number > p {
+    font-size: 1.25rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+}
+
+.num-title {
+    font-size: 1.25rem;
+    padding: 0.75rem;
+    font-weight: 700;
+}
+
+.desc {
+    padding: 1rem;
+    font-size: 1rem;
+}
+
