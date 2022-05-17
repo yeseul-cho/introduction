@@ -4,7 +4,18 @@ document.addEventListener('DOMContentLoaded', function(){
     document.querySelector("#text2").addEventListener('click', () => showDesc(2));
     document.querySelector("#text3").addEventListener('click', () => showDesc(3));
     document.querySelector(".random-btn").addEventListener('click', () => randomTMI());
+    document.querySelector(".hamburger").addEventListener('click', () => hamburger());
 })
+
+function hamburger(){
+    const navbar = document.querySelector('.navbar');
+    const navitemList = document.getElementsByClassName('navitem');
+  
+    navbar.classList.toggle('ham-open');
+    Array.from(navitemList).forEach(function(element){
+        element.classList.toggle('hamitem');
+    })
+}
 
 function showDesc(id){
     const desc1 = document.querySelector("#desc1");

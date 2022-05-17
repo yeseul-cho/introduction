@@ -30,10 +30,6 @@ nav {
     align-items: center;
 }
 
-.hamburger {
-    display: none;
-}
-
 a {
     color: inherit;
     text-decoration: inherit; 
@@ -41,6 +37,11 @@ a {
 
 .navitem {
     margin-left: 1rem;
+}
+
+/* hamburger menu */
+.hamburger {
+    display: none;
 }
 
 .home {
@@ -181,6 +182,11 @@ main {
 }
 
 @media screen and (max-width: 768px){
+
+    a {
+        color: inherit;
+        text-decoration: inherit; 
+    }
     
     nav {
         padding: 0.75rem 1rem;
@@ -204,6 +210,24 @@ main {
 
     .navitem {
         display: none;
+    }
+
+    .navbar-first{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    /* when hamburger menu opens */
+    .ham-open{
+        align-items: start;
+        justify-content: start;
+        flex-direction: column;
+    }
+
+    .hamitem {
+        display: block;
+        margin-top: 0.5rem;
     }
 
     .title-area {
@@ -233,7 +257,7 @@ main {
 
     .num-title {
         font-size: 1rem;
-        padding: 0.4rem;
+        padding: 0.6rem;
     }
     
     .desc {
