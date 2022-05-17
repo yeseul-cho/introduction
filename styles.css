@@ -30,6 +30,10 @@ nav {
     align-items: center;
 }
 
+.hamburger {
+    display: none;
+}
+
 a {
     color: inherit;
     text-decoration: inherit; 
@@ -178,6 +182,30 @@ main {
 
 @media screen and (max-width: 768px){
     
+    nav {
+        padding: 0.75rem 1rem;
+        background-color: black;
+        color: white;
+    }
+    
+    .navbar{
+        align-items: center;
+        justify-content: start;
+    }
+
+    .hamburger {
+        display: inline;
+    }
+
+    .home {
+        font-size: 0.925rem;
+        margin-left: 0.5rem;
+    }
+
+    .navitem {
+        display: none;
+    }
+
     .title-area {
         margin: 0.5rem 0 0.5rem 0;
         min-width: 300px;
