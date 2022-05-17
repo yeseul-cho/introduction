@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', function(){
     document.querySelector("#text1").addEventListener('click', () => showDesc(1));
     document.querySelector("#text2").addEventListener('click', () => showDesc(2));
     document.querySelector("#text3").addEventListener('click', () => showDesc(3));
+    document.querySelector(".random-btn").addEventListener('click', () => randomTMI());
 })
 
 function showDesc(id){
@@ -51,4 +52,34 @@ function showDesc(id){
         desc3.hidden = false;
         numberDiv3.classList.add('open');
     }
+}
+
+function randomTMI(){
+    const contents = document.querySelector('.random-contents');
+    contents.innerHTML = '';
+
+    let tmi;
+    const randomNum = Math.floor(Math.random() * 5);
+    switch (randomNum){
+        case 0:
+            tmi= '산책하다 새를 발견하는 것을 좋아한다.'
+            break;
+        case 1:
+            tmi = '주짓수 도장에 다니고 있다.'
+            break;
+        case 2:
+            tmi = '빵을 아주 아주 좋아한다.'
+            break;
+        case 3:
+            tmi = '어린이 연극에 오이로 출연한 적이 있다.'
+            break;
+        case 4:
+            tmi = '선릉에서 너구리를 본 적 있다.'
+            break;
+        case 5:
+            tmi ='미드 브루클린 나인나인을 지나치게 많이 본다.'
+            break;
+    }
+
+    contents.innerHTML = tmi;
 }
