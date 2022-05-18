@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function(){
     
     /* about 페이지인 경우 */
     if (document.querySelector('.about')){
-        showDesc(1);
+        showDesc(3);
         document.querySelector("#text1").addEventListener('click', () => showDesc(1));
         document.querySelector("#text2").addEventListener('click', () => showDesc(2));
         document.querySelector("#text3").addEventListener('click', () => showDesc(3));
@@ -61,8 +61,8 @@ function showDesc(id){
     }
 
     if (id ===3){
-        const desc = `그림을 그리고 디자인을 하며 저는 문제를 해결할 때
-        가장 보람을 느낀다는 것을 알게 되었습니다.<br/> 
+        const desc = `여러가지 일을 해보니 구체적인 문제를 해결할 수 있을 때
+        가장 재미있었습니다.<br/> 
         앞으로 개발을 통해 더 많은 문제를 재미있게 해결해보고 싶습니다.`
         desc3.insertAdjacentHTML("beforeend",desc);
         desc3.hidden = false;
