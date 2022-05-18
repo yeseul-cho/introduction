@@ -1,10 +1,15 @@
 document.addEventListener('DOMContentLoaded', function(){
-    showDesc(1);
-    document.querySelector("#text1").addEventListener('click', () => showDesc(1));
-    document.querySelector("#text2").addEventListener('click', () => showDesc(2));
-    document.querySelector("#text3").addEventListener('click', () => showDesc(3));
-    document.querySelector(".random-btn").addEventListener('click', () => randomTMI());
+    /* 공통으로 햄버거 아이콘 로드 */ 
     document.querySelector(".hamburger").addEventListener('click', () => hamburger());
+    
+    /* about 페이지인 경우 */
+    if (document.querySelector('.about')){
+        showDesc(1);
+        document.querySelector("#text1").addEventListener('click', () => showDesc(1));
+        document.querySelector("#text2").addEventListener('click', () => showDesc(2));
+        document.querySelector("#text3").addEventListener('click', () => showDesc(3));
+        document.querySelector(".random-btn").addEventListener('click', () => randomTMI());
+    }
 })
 
 function hamburger(){
