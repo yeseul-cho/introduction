@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', function(){
-    /* 공통으로 햄버거 아이콘 로드 */ 
+    // 공통으로 햄버거 아이콘 로드 
     document.querySelector(".hamburger").addEventListener('click', () => hamburger());
     
-    /* about 페이지인 경우 */
+    // about 페이지인 경우 
     if (document.querySelector('.about')){
         showDesc(3);
         document.querySelector("#text1").addEventListener('click', () => showDesc(1));
@@ -10,12 +10,21 @@ document.addEventListener('DOMContentLoaded', function(){
         document.querySelector("#text3").addEventListener('click', () => showDesc(3));
         document.querySelector(".random-btn").addEventListener('click', () => randomTMI());
     }
+
+    // work 페이지인 경우 
+    if (document.querySelector('.works')){
+        const card = document.querySelector('.work');
+        let cardIndex = Number(card.id.slice(-1));
+        document.querySelector('.fa-angle-left').addEventListener('click', () => carousel('left'));
+        document.querySelector('.fa-angle-right').addEventListener('click', () => carousel('right'));
+    }
 })
 
 function hamburger(){
+    // 햄버거 메뉴 열고 닫기 토글
     const navbar = document.querySelector('.navbar');
     const navitemList = document.getElementsByClassName('navitem');
-  
+    
     navbar.classList.toggle('ham-open');
     Array.from(navitemList).forEach(function(element){
         element.classList.toggle('hamitem');
@@ -23,6 +32,7 @@ function hamburger(){
 }
 
 function showDesc(id){
+    // about 화면 상세 문구 열기
     const desc1 = document.querySelector("#desc1");
     const desc2 = document.querySelector("#desc2");
     const desc3 = document.querySelector("#desc3");
@@ -39,17 +49,19 @@ function showDesc(id){
     const numberDiv2 = document.querySelector(`#number2`);
     const numberDiv3 = document.querySelector(`#number3`);
 
+    //  1, 2, 3번 모두 리셋 (open 클래스 없게)
     numberDiv1.className = 'number';
     numberDiv2.className = 'number';
     numberDiv3.className = 'number';
-
+    
     if (id === 1){
         const desc = `2019년까지 그림을 그리고 글을 썼습니다.<br/>
         나에게, 그리고 우리에게 중요한 문제가 무엇인지에 대해 고민했습니다.
         `
         desc1.insertAdjacentHTML("beforeend",desc);
         desc1.hidden = false;
-        numberDiv1.classList.add('open');
+        // 1번만 open 클래스 붙임
+        numberDiv1.classList.toggle('open');
     }
 
     if (id === 2){
@@ -57,7 +69,8 @@ function showDesc(id){
         문제를 해결하는 방식에 대해 고민했습니다.`
         desc2.insertAdjacentHTML("beforeend",desc);
         desc2.hidden = false;
-        numberDiv2.classList.add('open');
+        // 2번만 open 클래스 붙임
+        numberDiv2.classList.toggle('open');
     }
 
     if (id ===3){
@@ -66,11 +79,13 @@ function showDesc(id){
         앞으로 개발을 통해 더 많은 문제를 재미있게 해결해보고 싶습니다.`
         desc3.insertAdjacentHTML("beforeend",desc);
         desc3.hidden = false;
-        numberDiv3.classList.add('open');
+        // 3번만 open 클래스 붙임
+        numberDiv3.classList.toggle('open');
     }
 }
 
 function randomTMI(){
+    // about 화면 random tmi 생성기
     const contents = document.querySelector('.random-contents');
     contents.innerHTML = '';
 
@@ -98,4 +113,32 @@ function randomTMI(){
     }
 
     contents.innerHTML = tmi;
+}
+
+function carousel(arrow){
+// works 페이지 화살표 클릭 하는 경우
+    const card = document.querySelector('.work');
+    let cardIndex = Number(card.id.slice(-1));
+    card.hidden = true;
+    const cardsLength = 3;
+
+    const left = document.querySelector('.fa-angle-left');
+    const right = document.querySelector('.fa-angle-right');
+
+    if (arrow === 'right'){
+        if (cardIndex === cardsLength){
+            right.classList.add('gray');
+        } else {
+            left.classList.remove('gray');
+            document.querySelector(`#work${cardIndex + 1}`).hidden = false;
+        }
+    }
+    if (arrow == 'left'){
+        if (cardIndex === 1){
+            left.classList.add('gray');
+        } else {
+            right.classList.remove('gray');
+            document.querySelector(`#work${cardIndex - 1}`).hidden = false;
+        }
+    }
 }

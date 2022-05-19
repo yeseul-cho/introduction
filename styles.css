@@ -1,8 +1,3 @@
-/*
-font-family: 'Noto Sans KR', sans-serif;
-font-family: 'Poppins', sans-serif;
-*/
-
 * {
     padding: 0;
     margin: 0;
@@ -16,9 +11,9 @@ html, body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    width: 100%;
 }
 
+/* 메뉴 */
 nav {
     padding: 1.25rem;
     background-color: black;
@@ -41,7 +36,6 @@ a {
     margin-left: 1rem;
 }
 
-/* hamburger menu */
 .hamburger {
     display: none;
 }
@@ -62,6 +56,7 @@ a:hover {
     font-style: italic;
 }
 
+/* 공통 main 박스, 타이틀 */
 main {
     display: flex;
     flex-direction: column;
@@ -71,7 +66,6 @@ main {
     flex-grow: 1;
 }
 
-/* title area */
 .title-area {
     margin: 1.5rem 0 1.5rem 0;
     display: flex;
@@ -96,7 +90,7 @@ main {
     margin-left: 0.75rem;
 }
 
-/* main */
+/* index 화면 */
 .main-cover-area {
     background: rgb(255,245,127);
     background: linear-gradient(207deg, rgba(255,245,127,1) 0%, rgba(168,249,255,1) 87%, rgba(68,224,255,1) 100%);
@@ -136,7 +130,7 @@ main {
     line-height: 1;
 }
 
-/* contents area */
+/* about 화면, contact 화면 */
 .contents-area {
     border: solid 3px;
     width: 80%;
@@ -203,11 +197,9 @@ main {
 
 .desc {
     padding: 1rem;
-    font-size: 1rem;
     line-height: 1.5;
 }
 
-/* random-area */
 .random-area {
     margin-top : 3rem;
 }
@@ -241,8 +233,63 @@ main {
     padding-bottom: 0.25rem;
 }
 
-@media screen and (max-width: 768px){
+/* works 화면 */
+.works-area{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
 
+.arrow-area {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.arrow-area > i{
+    width: 100%;
+    font-size: 5rem;
+    cursor: pointer;
+} 
+
+.fa-angle-right{
+    padding-left: 1rem;
+}
+
+.fa-angle-left{
+    padding-right: 1rem;
+}
+
+.arrow-area > .gray{
+    opacity: 0.3;
+    cursor: default;
+}
+
+.works-contents-area{
+    max-width: 30rem;
+}
+
+.work-title {
+    font-size: 1.25rem;
+    padding: 0.75rem;
+    font-weight: 700;
+    text-align: center;
+    background-color: yellow;
+}
+
+.work-img {
+    width: 100%;
+}
+
+.work-desc > span{
+    margin-bottom: 0.3rem;
+    display: block;
+    font-size: 0.75rem;
+}
+
+
+@media screen and (max-width: 768px){
+    /* 메뉴 */
     a {
         color: inherit;
         text-decoration: inherit; 
@@ -271,6 +318,8 @@ main {
 
     .navitem {
         display: none;
+        margin-left: 0.35rem;
+        padding: 0.25rem;
     }
 
     .navbar-first{
@@ -279,7 +328,7 @@ main {
         align-items: center;
     }
 
-    /* when hamburger menu opens */
+    /* 햄버거 메뉴 오픈 */
     .ham-open{
         align-items: start;
         justify-content: start;
@@ -291,7 +340,7 @@ main {
         margin-top: 0.5rem;
     }
 
-    /* index */
+    /* index 화면 */
     .main-subtitle {
         font-size: 1rem;
     }
@@ -305,6 +354,7 @@ main {
         letter-spacing: 0.6rem;
     }
 
+    /* index 제외 공통 화면 */
     .title-area {
         margin: 0.5rem 0 0.5rem 0;
         min-width: 300px;
@@ -335,7 +385,7 @@ main {
         padding: 0.6rem;
     }
 
-    /* contact */
+    /* contact 화면 */
     .contact-num {
         min-width: 3rem;
     }
@@ -348,8 +398,8 @@ main {
     
     .desc {
         padding: 0.8rem;
-        font-size: 1rem;
-        line-height: 1.3;
+        font-size: 0.9rem;
+        line-height: 1.5;
     }
 
     .random-area {
@@ -359,4 +409,17 @@ main {
         max-width: 480px;
     }
 
+    /* work 화면 */
+    .works{
+        padding: 1rem 0.5rem; 
+    }
+
+    .works-contents-area{
+        min-width: 150px;
+        flex-shrink: 1;
+    }
+
+    .arrow-area > i {
+        font-size: 3rem;
+    }
 }
