@@ -14,7 +14,6 @@ document.addEventListener('DOMContentLoaded', function(){
     // work 페이지인 경우 
     if (document.querySelector('.works')){
         const card = document.querySelector('.work');
-        let cardIndex = Number(card.id.slice(-1));
         document.querySelector('.fa-angle-left').addEventListener('click', () => carousel('left'));
         document.querySelector('.fa-angle-right').addEventListener('click', () => carousel('right'));
     }
@@ -117,28 +116,47 @@ function randomTMI(){
 
 function carousel(arrow){
 // works 페이지 화살표 클릭 하는 경우
-    const card = document.querySelector('.work');
-    let cardIndex = Number(card.id.slice(-1));
-    card.hidden = true;
-    const cardsLength = 3;
+    // 모든 works div 가져옴
+    const works = Array.from(document.getElementsByClassName('work'));
+    const length = works.length;
 
+    // 현재 표시되고 있는 work div의 아이디를 current에 저장
+    let current;
+    works.forEach(work => {
+        if (work.hidden === false){
+            current = Number(work.id.slice(-1));
+        }
+    });
+    
+    // 클릭한 화살표 방향에 따른 동작
     const left = document.querySelector('.fa-angle-left');
     const right = document.querySelector('.fa-angle-right');
 
-    if (arrow === 'right'){
-        if (cardIndex === cardsLength){
-            right.classList.add('gray');
-        } else {
-            left.classList.remove('gray');
-            document.querySelector(`#work${cardIndex + 1}`).hidden = false;
+    if (arrow === 'left'){
+        // 현재 work div가 첫번째가 아닌 경우, 이전 work div 보여줌과 동시에
+        // 오른쪽 화살표 활성화
+        if (1 < current){
+            document.querySelector(`#work${current}`).hidden = true;
+            document.querySelector(`#work${current - 1}`).hidden = false;
+            right.classList.remove('gray');
+        }
+
+        // 현재 work div가 마지막 직전인 경우, 마지막 work div 보여줌과 동시에
+        // 왼쪽 화살표 비활성화
+        if (current === 2){
+            left.classList.add('gray');
         }
     }
-    if (arrow == 'left'){
-        if (cardIndex === 1){
-            left.classList.add('gray');
-        } else {
-            right.classList.remove('gray');
-            document.querySelector(`#work${cardIndex - 1}`).hidden = false;
+
+    if (arrow === 'right'){
+        if (current < length){
+            document.querySelector(`#work${current}`).hidden = true;
+            document.querySelector(`#work${current + 1}`).hidden = false;
+            left.classList.remove('gray');
+        }
+
+        if (current === length - 1){
+            right.classList.add('gray');
         }
     }
 }
